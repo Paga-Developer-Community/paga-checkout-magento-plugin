@@ -4,7 +4,11 @@ Paga ExpressCheckout payment gateway Magento2 extension
 
 ## Install
 
-- FTP/SCP into your hosting server and copy the unzipped file into the app/code/Magento folder.
+- FTP/SCP into your hosting server and copy the unzipped file into the app/code/Magento folder or 
+
+```bash
+composer require paga-checkout/checkout
+ ```
 
 * Enter following commands to enable module:
 
