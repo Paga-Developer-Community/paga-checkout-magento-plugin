@@ -1,0 +1,22 @@
+<?php if ($block->isRefreshRequired()): ?>
+    <script type="text/javascript">        
+        require([
+            'jquery',
+            'Magento_Customer/js/customer-data'
+        ], function ($, customerData) {
+            var sections = ['cart'];
+            $.ajax({
+                url: '<?php echo $block->getRefreshUrl(); ?>',
+                type: 'POST',
+                beforeSend: function () {                    
+                    $('#loader').show();
+                },
+                success: function (response) {
+                    customerData.invalidate(sections);
+                    $('#loader').hide();                    
+                    //location.reload();
+                }
+            });
+        });        
+    </script>    
+<?php endif; ?>
