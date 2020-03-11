@@ -17,7 +17,7 @@ php bin/magento cache:clean
 php bin/magento cache:flush
 ```
 
-- Enable and configure `Paystack` in _Magento Admin_ under `Stores/Configuration/Payment` Methods
+- Enable and configure `Paga ExpressCheckout` in _Magento Admin_ under `Stores/Configuration/Payment` Methods
 
 [ico-version]: https://img.shields.io/packagist/v/pstk/paystack-magento2-module.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
