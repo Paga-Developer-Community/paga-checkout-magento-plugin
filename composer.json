@@ -20,7 +20,7 @@
   "autoload": {
     "files": ["registration.php"],
     "psr-4": {
-      "Magento\\ExpressCheckout\\": ""
+      "paga-checkout\\checkout\\": ""
     }
   }
 }
