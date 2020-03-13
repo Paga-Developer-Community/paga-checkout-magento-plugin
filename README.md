@@ -1,6 +1,7 @@
-[![Latest Version on Packagist][link-packagist]]
+<!-- [![Latest Version on Packagist][link-packagist]] -->
+<!--
 [![Software License][ico-license]](LICENSE)
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Total Downloads][ico-downloads]][link-downloads] -->
 
 # Paga ExpressCheckout Magento 2 Plugin
 
