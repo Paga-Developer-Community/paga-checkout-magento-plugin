@@ -20,7 +20,10 @@
   "autoload": {
     "files": ["registration.php"],
     "psr-4": {
-      "paga-checkout\\checkout\\": ""
+      "Magento\\ExpressCheckout\\": ""
     }
-  }
+  },
+  "keywords": [
+    "API", "Bank card", "Credit card", "Paga", "eCommerce", "Magento", "Magento 2", "Magento extension", "Payment", "Payment authorization", "Payment integration", "Payment gateway"
+  ]
 }
