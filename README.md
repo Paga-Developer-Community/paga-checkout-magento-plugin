@@ -1,7 +1,6 @@
-[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Latest Version on Packagist][link-packagist]]
 [![Software License][ico-license]](LICENSE)
-
-<!-- [![Total Downloads][ico-downloads]][link-downloads] -->
+[![Total Downloads][ico-downloads]][link-downloads]
 
 # Paga ExpressCheckout Magento 2 Plugin
 
@@ -58,7 +57,7 @@ php bin/magento cache:flush
   | Test Mode       | Yes(For test account) and No(for live account) |
 
 [ico-version]: https://img.shields.io/packagist/v/pstk/paystack-magento2-module.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-OSL-3.0-brightgreen.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-OSL3.0-brightgreen.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/paga-checkout/checkout-module.svg?style=flat-square
 [link-packagist]: https://packagist.org/packages/paga-checkout/checkout
 [link-downloads]: https://packagist.org/packages/paga-checkout/checkout
@@ -72,4 +71,4 @@ php bin/magento cache:flush
 
 For bug reports and feature requests directly related to this plugin, please use the [issue tracker](https://github.com/pagadevcomm/paga-magento-expresscheckout-plugin/issues).
 
-For general support or questions about your Paga account, you can reach out by sending a message from [our website](service@mypaga.com).
+For general support or questions about your Paga account, you can reach out by sending a mail to [mailto](service@mypaga.com).
