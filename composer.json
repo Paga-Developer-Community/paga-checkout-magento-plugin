@@ -23,6 +23,7 @@
       "Magento\\ExpressCheckout\\": ""
     }
   },
+  "minimum-stability": "dev",
   "keywords": [
     "API", "Bank card", "Credit card", "Paga", "eCommerce", "Magento", "Magento 2", "Magento extension", "Payment", "Payment authorization", "Payment integration", "Payment gateway"
   ]
