@@ -10,20 +10,35 @@
   "require": {
     "php": "~7.1.3|~7.2.0"
   },
-  "authors": [{
-    "name": "PagaDevcomm",
-    "email": "devcomm@paga.com",
-    "homepage": "https://developer.paga.com/",
-    "role": "Fintech"
-  }],
+  "authors": [
+    {
+      "name": "PagaDevcomm",
+      "email": "devcomm@paga.com",
+      "homepage": "https://developer.paga.com/",
+      "role": "Fintech"
+    }
+  ],
   "autoload": {
-    "files": ["registration.php"],
+    "files": [
+      "registration.php"
+    ],
     "psr-4": {
       "Magento\\ExpressCheckout\\": ""
     }
   },
   "minimum-stability": "dev",
   "keywords": [
-    "API", "Bank card", "Credit card", "Paga", "eCommerce", "Magento", "Magento 2", "Magento extension", "Payment", "Payment authorization", "Payment integration", "Payment gateway"
+    "API",
+    "Bank card",
+    "Credit card",
+    "Paga",
+    "eCommerce",
+    "Magento",
+    "Magento 2",
+    "Magento extension",
+    "Payment",
+    "Payment authorization",
+    "Payment integration",
+    "Payment gateway"
   ]
 }
