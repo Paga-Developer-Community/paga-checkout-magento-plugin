@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="paga_expresscheckout_payment_transaction" resource="default" engine="innodb" comment="Paga Express Checkout Payment Transaction">
+        <column xsi:type="int" name="transaction_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="txn_id" nullable="true" length="100" comment="Txn ID"/>
+        <column xsi:type="blob" name="additional_information" nullable="true" comment="Additional Information"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="true" comment="Created At"/>
+         <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="transaction_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="PAYPAL_PAYMENT_TRANSACTION_TXN_ID">
+            <column name="txn_id"/>
+        </constraint>
+    </table>
+</schema>
