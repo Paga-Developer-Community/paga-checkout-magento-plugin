@@ -5,7 +5,7 @@ namespace Magento\PagaCheckout\Controller\Checkout;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\DataObject;
 use Magento\Framework\Exception\PaymentException;
-
+ 
 class Callback extends \Magento\Framework\App\Action\Action {
 
     protected $_paymentMethod;
@@ -49,7 +49,16 @@ class Callback extends \Magento\Framework\App\Action\Action {
      * @param  \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
-    \Magento\Framework\App\Action\Context $context, \Magento\Framework\ObjectManagerInterface $objectManager, \Magento\ExpressCheckout\Model\PagaExpress $paymentMethod, \Magento\Sales\Model\Order\Email\Sender\OrderSender $orderSender, \Magento\Checkout\Model\Session $checkoutSession, \Psr\Log\LoggerInterface $logger, \Magento\ExpressCheckout\Helper\Data $pagaExpressHelper, \Magento\Framework\DB\TransactionFactory $transactionFactory, \Magento\Framework\Message\ManagerInterface $messageManager, \Magento\Framework\App\Request\Http $request
+    \Magento\Framework\App\Action\Context $context, 
+    \Magento\Framework\ObjectManagerInterface $objectManager,
+    \Magento\ExpressCheckout\Model\PagaExpress $paymentMethod,
+    \Magento\Sales\Model\Order\Email\Sender\OrderSender $orderSender,
+    \Magento\Checkout\Model\Session $checkoutSession,
+    \Psr\Log\LoggerInterface $logger, 
+    \Magento\ExpressCheckout\Helper\Data $pagaExpressHelper,
+    \Magento\Framework\DB\TransactionFactory $transactionFactory, 
+    \Magento\Framework\Message\ManagerInterface $messageManager, 
+    \Magento\Framework\App\Request\Http $request
     ) {
         $this->_paymentMethod = $paymentMethod;
         $this->_objectManager = $objectManager;
@@ -64,11 +73,17 @@ class Callback extends \Magento\Framework\App\Action\Action {
 
         parent::__construct($context);
     }
-
-    public function execute() {
+    
+    public function getPost()
+    {
+        return $this -> request -> getPostValue();
+    }
+    public function execute() 
+    {
 
         $this->_logger->addDebug("Paga Express Checkout Callback");
-        $this->_logger->addDebug(print_r($_REQUEST, true));
+        // $this->_logger->addDebug(print_r($_REQUEST, true));
+        $this->_logger->addDebug(print_r($this -> getPost(), true));
 
 
         $this->_loadQuote();
