@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\ExpressCheckout\Block\Onepage;
+namespace Magento\PagaCheckout\Block\Onepage;
 
 class Success extends \Magento\Checkout\Block\Onepage\Success {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\ExpressCheckout\Block;
+namespace Magento\PagaCheckout\Block;
 
 use Magento\Checkout\Model\Session;
 use Magento\Framework\View\Element\Template\Context;

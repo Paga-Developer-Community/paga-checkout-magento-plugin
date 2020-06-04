@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\ExpressCheckout\Helper;
+namespace Magento\PagaCheckout\Helper;
 
 use \Magento\Customer\Helper\Session\CurrentCustomer;
 

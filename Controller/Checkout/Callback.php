@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\ExpressCheckout\Controller\Checkout;
+namespace Magento\PagaCheckout\Controller\Checkout;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\DataObject;

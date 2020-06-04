@@ -5,7 +5,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Magento\ExpressCheckout\Model;
+namespace Magento\PagaCheckout\Model;
 
 use \Magento\Checkout\Model\ConfigProviderInterface;
 use \Magento\Customer\Helper\Session\CurrentCustomer;

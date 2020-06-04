@@ -1,6 +1,6 @@
 <?php
 
-namespace Magento\ExpressCheckout\Setup;
+namespace Magento\PagaCheckout\Setup;
 
 use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
