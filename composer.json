@@ -1,5 +1,5 @@
 {
-  "name": "paga/paga-checkout",
+  "name": "pagadevcomm/paga-checkout",
   "description": "A Magento 2 module that is used for making payments via paga payment gateway",
   "type": "magento2-module",
   "version": "1.0.0",
