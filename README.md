@@ -63,10 +63,12 @@ php bin/magento cache:flush
 
 For bug reports and feature requests directly related to this plugin, please use the [issue tracker](https://github.com/pagadevcomm/paga-magento-expresscheckout-plugin/issues).
 
-![Packagist Downloads](https://img.shields.io/packagist/dt/paga-checkout/checkout?style=plastic)
-![Packagist Version](https://img.shields.io/packagist/v/paga-chekout/checkout)
-![Packagist Stars](https://img.shields.io/packagist/stars/paga-checkout/checkout)
-![Packagist PHP Version Support (specify version)](https://img.shields.io/packagist/php-v/paga-checkout/checkout/dev-master)
-![Packagist License](https://img.shields.io/packagist/l/paga-checkout/checkout)
-
 For general support or questions about your Paga account, you can reach out by sending a mail to [mailto](service@mypaga.com).
+
+![Packagist Downloads](https://img.shields.io/packagist/dm/paga/paga-checkout?style=plastic)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/paga/paga-checkout?style=plastic)
+![Packagist Stars](https://img.shields.io/packagist/stars/paga/paga-checkout?style=plastic)
+![Packagist Version](https://img.shields.io/packagist/v/paga/paga-checkout?style=plastic)
+![Packagist License](https://img.shields.io/packagist/l/paga/paga-checkout?style=plastic)
+
+
