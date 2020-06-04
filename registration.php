@@ -2,6 +2,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Paga_ExpressCheckout',
+    'Magento_PagaCheckout',
     __DIR__
 );
