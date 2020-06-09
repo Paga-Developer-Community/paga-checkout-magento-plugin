@@ -6,7 +6,8 @@ use Magento\Checkout\Model\Session;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\View\Element\Template;
 
-class Success extends \Magento\Framework\View\Element\Template {
+class Success extends \Magento\Framework\View\Element\Template
+{
 
     protected $_checkoutSession;
     protected $customerRepository;
@@ -18,7 +19,8 @@ class Success extends \Magento\Framework\View\Element\Template {
         parent::__construct($context, $data);
     }
 
-    public function isRefreshRequired() {
+    public function isRefreshRequired()
+    {
         return true;
         if ($this->_checkoutSession->getMinicartNeedsRefresh()) {
             $this->_checkoutSession->setMinicartNeedsRefresh(false);
@@ -28,8 +30,9 @@ class Success extends \Magento\Framework\View\Element\Template {
         }
     }
 
-    public function getRefreshUrl() {
-        return $this->getUrl('pagaexpress/checkout/refresh',['_secure' => true]);
+    public function getRefreshUrl()
+    {
+        return $this->getUrl('pagaexpress/checkout/refresh', ['_secure' => true]);
     }
 
 }

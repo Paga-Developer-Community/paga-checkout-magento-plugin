@@ -2,7 +2,8 @@
 
 namespace Magento\PagaCheckout\Block\Onepage;
 
-class Success extends \Magento\Checkout\Block\Onepage\Success {
+class Success extends \Magento\Checkout\Block\Onepage\Success
+{
 
     protected function _construct() {
         $this->setModuleName('Magento_Checkout');
