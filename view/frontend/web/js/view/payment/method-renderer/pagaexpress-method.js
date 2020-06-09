@@ -29,7 +29,7 @@ define([
     console.log(url.build("pagaexpress/checkout/callback"));
     return Component.extend({
         defaults: {
-            template: "Paga_ExpressCheckout/payment/pagaexpress"
+            template: "Magento_PagaCheckout/payment/pagaexpress"
         },
         getMailingAddress: function() {
             return window.checkoutConfig.payment.checkmo.mailingAddress;
@@ -44,13 +44,9 @@ define([
                 success: function(response) {
                     fullScreenLoader.stopLoader();
                     if (response.success) {
-                        console.log("We are her to learn how it works");
                         this.pymbIframeSrc = response.iframeSrc;
                         self.renderIframe(response);
                     } else {
-                        console.log(
-                            "We are here to learn how it does work also"
-                        );
                         self.isPaymentProcessing.reject(response.message);
                     }
                 },
@@ -64,7 +60,6 @@ define([
             quote.billingAddress() != null
         ),
         selectPaymentMethod: function() {
-            console.log("Common show me how it works over here");
             selectPaymentMethodAction(this.getData());
             checkoutData.setSelectedPaymentMethod(this.item.method);
             this.renderPagaScript();
@@ -72,32 +67,22 @@ define([
         },
         renderPagaScript: function() {
             var checkoutConfig = window.checkoutConfig;
-            console.log(checkoutConfig);
             var paymentData = quote.billingAddress();
-            console.log(paymentData);
-            var pagaExpressCheckoutConfiguration =
+            var pagaCheckoutConfiguration =
                 checkoutConfig.payment.pagaexpress;
-            console.log(pagaExpressCheckoutConfiguration);
             if (checkoutConfig.isCustomerLoggedIn) {
                 var customerData = checkoutConfig.customerData;
                 paymentData.email = customerData.email;
-                console.info(customerData);
-                console.log(paymentData);
             } else {
                 var storageData = JSON.parse(
                     localStorage.getItem("mage-cache-storage")
                 )["checkout-data"];
-                console.log(storageData);
                 paymentData.email = storageData.validatedEmailValue;
-                console.log(paymentData);
             }
 
             var scriptTag = document.createElement("script");
-            console.log(scriptTag);
             scriptTag.type = "text/javascript";
-            console.log(scriptTag.type);
             scriptTag.src = window.checkoutConfig.payment.pagaexpress.apiUrl;
-            console.log(scriptTag.src);
             scriptTag.setAttribute(
                 "data-public_key",
                 window.checkoutConfig.payment.pagaexpress.public_key
@@ -129,12 +114,10 @@ define([
         },
         _updateQuote: function() {
             var checkoutConfig = window.checkoutConfig;
-            console.log(checkoutConfig);
             var paymentData = quote.billingAddress();
-            console.log(paymentData);
-            var pagaExpressCheckoutConfiguration =
+            var pagaCheckoutConfiguration =
                 checkoutConfig.payment.pagaexpress;
-            console.log(pagaExpressCheckoutConfiguration);
+            console.log(pagaCheckoutConfiguration);
             if (checkoutConfig.isCustomerLoggedIn) {
                 var customerData = checkoutConfig.customerData;
                 console.log(customerData);
@@ -147,7 +130,6 @@ define([
                 console.log(storageData);
                 paymentData.email = storageData.validatedEmailValue;
             }
-            console.log(url.build("pagaexpress/checkout/quote"));
             $.post(url.build("pagaexpress/checkout/quote"), {
                 email: paymentData.email
             });
@@ -167,7 +149,6 @@ define([
                     this.redirectAfterPlaceOrder,
                     this.messageContainer
                 );
-                console.log(placeOrder);
 
                 var promise = $.when(placeOrder)
                     .fail(function() {
@@ -178,10 +159,9 @@ define([
                 promise.then(function() {
                     console.debug("This was resolved immediately");
                 });
-                console.log("Just checking if we were alright");
                 return true;
             }
-            console.log("Just checking if we were really alright");
+
             return false;
         },
         getData: function() {
@@ -192,7 +172,6 @@ define([
             };
         },
         validate: function() {
-            console.log("Well validated");
             return true;
         }
     });

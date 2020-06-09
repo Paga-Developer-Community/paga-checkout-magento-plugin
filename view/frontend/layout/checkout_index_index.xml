@@ -22,7 +22,7 @@
                                                         <item name="renders" xsi:type="array">
                                                             <item name="children" xsi:type="array">                                                                
                                                                 <item name="expresscheckout-pagaexpress" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Paga_ExpressCheckout/js/view/payment/pagaexpress</item>
+                                                                    <item name="component" xsi:type="string">Magento_PagaCheckout/js/view/payment/pagaexpress</item>
                                                                     <item name="methods" xsi:type="array">                                                                  
                                                                         <item name="pagaexpress" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">true</item>

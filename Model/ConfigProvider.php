@@ -10,7 +10,8 @@ namespace Magento\PagaCheckout\Model;
 use \Magento\Checkout\Model\ConfigProviderInterface;
 use \Magento\Customer\Helper\Session\CurrentCustomer;
 
-class ConfigProvider implements ConfigProviderInterface {
+class ConfigProvider implements ConfigProviderInterface
+{
     /**
      * @var string[]
      */
@@ -34,7 +35,7 @@ class ConfigProvider implements ConfigProviderInterface {
      * @param \Magento\Payment\Helper\Data $paymentHelper
      */
     public function __construct(
-    CurrentCustomer $currentCustomer, \Magento\ExpressCheckout\Model\PagaExpress $PaymentMethod, \Magento\Framework\Encryption\Encryptor $crypt
+    CurrentCustomer $currentCustomer, \Magento\PagaCheckout\Model\PagaExpress $PaymentMethod, \Magento\Framework\Encryption\Encryptor $crypt
     ) {
         $this->currentCustomer = $currentCustomer;
         $this->paymentMethod = $PaymentMethod;
@@ -45,7 +46,8 @@ class ConfigProvider implements ConfigProviderInterface {
     /**
      * @return array|void
      */
-    public function getConfig() {
+    public function getConfig()
+    {
 
         $config = [
             'payment' => [
@@ -60,7 +62,8 @@ class ConfigProvider implements ConfigProviderInterface {
         return $config;
     }
 
-    private function getIsCustomerLoggedIn() {
+    private function getIsCustomerLoggedIn()
+    {
 
         if (!$this->currentCustomer->getCustomerId()) {
             return false;
@@ -69,17 +72,19 @@ class ConfigProvider implements ConfigProviderInterface {
         return true;
     }
 
-    private function getApiUrl() {
+    private function getApiUrl()
+    {
 
         if ($this->isTestMode) {
-            return "https://qa1.mypaga.com/checkout/";
+            return "https://beta.mypaga.com/checkout/";
         } else {
 
             return "https://www.mypaga.com/checkout/";
         }
     }
 
-    private function getApiPublicKey() {
+    private function getApiPublicKey()
+    {
         if ($this->isTestMode) {
             return $this->paymentMethod->getConfigData('test_public_key');
         } else {

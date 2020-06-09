@@ -5,7 +5,8 @@ namespace Magento\PagaCheckout\Controller\Checkout;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 
-class Quote extends Action {
+class Quote extends Action
+{
 
     protected $_checkoutSession;
     protected $_quote;
@@ -23,7 +24,8 @@ class Quote extends Action {
         parent::__construct($context);
     }
 
-    public function execute() {
+    public function execute()
+    {
         $email = $this->request->getParam('email');
         if ($email) {
             $this->_loadQuote();
@@ -31,7 +33,8 @@ class Quote extends Action {
         }
     }
 
-    protected function _loadQuote() {
+    protected function _loadQuote()
+    {
         $this->_quote = $this->_checkoutSession->getQuote();
     }
 

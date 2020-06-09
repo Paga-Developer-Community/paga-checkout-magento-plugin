@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <body>
     <referenceContainer name="order.success.additional.info">
-        <block class="Magento\ExpressCheckout\Block\Success"
+        <block class="Magento\PagaCheckout\Block\OnePage\Success"
                name="pagaexpress.order.success"
                cachable="false"
-               template="Paga_ExpressCheckout::order/success.phtml"
+               template="Magento_PagaCheckout::order/success.phtml"
                after="-">
         </block>
     </referenceContainer>

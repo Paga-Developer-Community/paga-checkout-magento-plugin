@@ -1,7 +1,7 @@
 
-# Paga ExpressCheckout Magento 2 Plugin
+# PagaCheckout Magento 2 Plugin
 
-Paga ExpressCheckout payment gateway Magento2 extension
+PagaCheckout payment gateway Magento2 extension
 
 ## Install
 
@@ -34,9 +34,9 @@ php bin/magento cache:flush
 
 - ###### From your magenta root folder, open the file app/etc/config.php.
 
-  Add the line “‘Paga_ExpressCheckout’ => 1,” at the end of the list
+  Add the line “‘PagaCheckout’ => 1,” at the end of the list
 
-- ###### Configure `Paga ExpressCheckout` plugin in Magento
+- ###### Configure `PagaCheckout` plugin in Magento
 
   1. Log in to your Magento admin panel.
   2. In the left navigation bar, go to **Stores > Configuration**.

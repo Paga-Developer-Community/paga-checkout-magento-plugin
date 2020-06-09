@@ -5,8 +5,9 @@ namespace Magento\PagaCheckout\Controller\Checkout;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\DataObject;
 use Magento\Framework\Exception\PaymentException;
-
-class Callback extends \Magento\Framework\App\Action\Action {
+ 
+class Callback extends \Magento\Framework\App\Action\Action
+{
 
     protected $_paymentMethod;
     protected $_notification;
@@ -49,7 +50,16 @@ class Callback extends \Magento\Framework\App\Action\Action {
      * @param  \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
-    \Magento\Framework\App\Action\Context $context, \Magento\Framework\ObjectManagerInterface $objectManager, \Magento\ExpressCheckout\Model\PagaExpress $paymentMethod, \Magento\Sales\Model\Order\Email\Sender\OrderSender $orderSender, \Magento\Checkout\Model\Session $checkoutSession, \Psr\Log\LoggerInterface $logger, \Magento\ExpressCheckout\Helper\Data $pagaExpressHelper, \Magento\Framework\DB\TransactionFactory $transactionFactory, \Magento\Framework\Message\ManagerInterface $messageManager, \Magento\Framework\App\Request\Http $request
+    \Magento\Framework\App\Action\Context $context, 
+    \Magento\Framework\ObjectManagerInterface $objectManager,
+    \Magento\PagaCheckout\Model\PagaExpress $paymentMethod,
+    \Magento\Sales\Model\Order\Email\Sender\OrderSender $orderSender,
+    \Magento\Checkout\Model\Session $checkoutSession,
+    \Psr\Log\LoggerInterface $logger, 
+    \Magento\PagaCheckout\Helper\Data $pagaExpressHelper,
+    \Magento\Framework\DB\TransactionFactory $transactionFactory, 
+    \Magento\Framework\Message\ManagerInterface $messageManager, 
+    \Magento\Framework\App\Request\Http $request
     ) {
         $this->_paymentMethod = $paymentMethod;
         $this->_objectManager = $objectManager;
@@ -64,11 +74,17 @@ class Callback extends \Magento\Framework\App\Action\Action {
 
         parent::__construct($context);
     }
-
-    public function execute() {
+    
+    public function getPost()
+    {
+        return $this -> request -> getPostValue();
+    }
+    public function execute() 
+    {
 
         $this->_logger->addDebug("Paga Express Checkout Callback");
-        $this->_logger->addDebug(print_r($_REQUEST, true));
+        // $this->_logger->addDebug(print_r($_REQUEST, true));
+        $this->_logger->addDebug(print_r($this -> getPost(), true));
 
 
         $this->_loadQuote();
@@ -107,7 +123,8 @@ class Callback extends \Magento\Framework\App\Action\Action {
         return $this;
     }
 
-    protected function _loadQuote() {
+    protected function _loadQuote()
+    {
 
         $this->_quote = $this->_checkoutSession->getQuote();
 
@@ -119,7 +136,8 @@ class Callback extends \Magento\Framework\App\Action\Action {
         }
     }
 
-    public function _placeOrder() {
+    public function _placeOrder()
+    {
 
         $quote = $this->_quote;
         $this->_quote->getPayment()->importData(array('method' => 'pagaexpress'));
@@ -154,7 +172,8 @@ class Callback extends \Magento\Framework\App\Action\Action {
         return $this;
     }
 
-    private function _validateQuote() {
+    private function _validateQuote() 
+    {
 
         if (!$this->_quote->getCustomerEmail())
             $this->_quote->setCustomerEmail($this->_quote->getBillingAddress()->getEmail());
@@ -169,11 +188,14 @@ class Callback extends \Magento\Framework\App\Action\Action {
             $this->_quote->setCustomerLastname($this->_quote->getBillingAddress()->getLastname());
     }
 
-    private function getModel($_model) {
+    private function getModel($_model)
+    {
         return $this->_objectManager->create($_model);
+        // return new $_model();
     }
 
-    protected function _registerPaymentCapture() {
+    protected function _registerPaymentCapture()
+    {
 
         $order = $this->_order;
 
@@ -188,15 +210,15 @@ class Callback extends \Magento\Framework\App\Action\Action {
             $invoice->register();
             $transaction = $this->transactionFactory->create();
             $transaction->addObject($invoice)
-                    ->addObject($invoice->getOrder())
-                    ->save();
+                ->addObject($invoice->getOrder())
+                ->save();
 
             if ($invoice && !$this->_order->getEmailSent()) {
                 $this->_orderSender->send($this->_order);
                 $this->_order->addStatusHistoryComment(
-                        __('You notified customer about invoice #%1.', $invoice->getIncrementId())
+                    __('You notified customer about invoice #%1.', $invoice->getIncrementId())
                 )->setIsCustomerNotified(
-                        true
+                    true
                 )->save();
             }
         }

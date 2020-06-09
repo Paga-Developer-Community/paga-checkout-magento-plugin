@@ -11,7 +11,7 @@ define(
         rendererList.push(
             {
                 type: 'pagaexpress',
-                component: 'Paga_ExpressCheckout/js/view/payment/method-renderer/pagaexpress-method'
+                component: 'Magento_PagaCheckout/js/view/payment/method-renderer/pagaexpress-method'
             }
         );        
         return Component.extend({});

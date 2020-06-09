@@ -13,9 +13,10 @@
     <type name="Magento\Checkout\Model\CompositeConfigProvider">
         <arguments>
             <argument name="configProviders" xsi:type="array">                
-                <item name="paga_config_provider" xsi:type="object">Magento\ExpressCheckout\Model\ConfigProvider</item>
+                <item name="paga_config_provider" xsi:type="object">Magento\PagaCheckout\Model\ConfigProvider</item>
             </argument>
         </arguments>
     </type>
-    <preference for="Magento\Checkout\Block\Onepage\Success" type="Magento\ExpressCheckout\Block\Onepage\Success" />
+    <preference for="Magento\Checkout\Block\Onepage\Success" type="Magento\PagaCheckout\Block\Onepage\Success" />
+    <!-- <preference for="Magento\Framework\App\Config\ValueInterface" type="Magento\Framework\App\Config\Value" /> -->
 </config>

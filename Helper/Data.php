@@ -4,7 +4,8 @@ namespace Magento\PagaCheckout\Helper;
 
 use \Magento\Customer\Helper\Session\CurrentCustomer;
 
-class Data extends \Magento\Framework\App\Helper\AbstractHelper {
+class Data extends \Magento\Framework\App\Helper\AbstractHelper
+{
 
     protected $logger;
     protected $orderNotifierHelper;
@@ -22,7 +23,14 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
     protected $currentCustomer;
 
     public function __construct(
-    \Psr\Log\LoggerInterface $logger, \Magento\Store\Model\StoreManagerInterface $storeManager, \Magento\Framework\Message\ManagerInterface $messageManager, \Magento\Backend\Model\Session $backendSession, \Magento\Checkout\Model\Session $checkoutSession, \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig, \Magento\Config\Model\ResourceModel\Config $resourceConfig, CurrentCustomer $currentCustomer
+        \Psr\Log\LoggerInterface $logger,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Framework\Message\ManagerInterface $messageManager,
+        \Magento\Backend\Model\Session $backendSession,
+        \Magento\Checkout\Model\Session $checkoutSession,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig, 
+        \Magento\Config\Model\ResourceModel\Config $resourceConfig,
+        CurrentCustomer $currentCustomer
     ) {
 
         $this->logger = $logger;
@@ -35,7 +43,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
         $this->currentCustomer = $currentCustomer;
     }
 
-    function getPublicKey() {
+    function getPublicKey()
+    {
         if ($this->getIsTestMode()) {
             return trim($this->scopeConfig->getValue('payment/pagaexpress/test_public_key', \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
         } else {
@@ -43,7 +52,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
         }
     }
 
-    function getSecretKey() {
+    function getSecretKey()
+    {
         if ($this->getIsTestMode()) {
             return trim($this->scopeConfig->getValue('payment/pagaexpress/test_secret_key', \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
         } else {
@@ -51,7 +61,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
         }
     }
 
-    private function getIsTestMode() {
+    private function getIsTestMode()
+    {
         if ($this->scopeConfig->getValue('payment/pagaexpress/test_mode', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             return true;
         } else {
@@ -59,7 +70,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
         }
     }
 
-    function verifyTransaction($quote) {
+    function verifyTransaction($quote)
+    {
 
 
 
@@ -68,7 +80,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
         }
 
         if ($this->getIsTestMode()) {
-            $link = "https://qa1.";
+            $link = "https://beta.";
         } else {
             $link = "https://www.";
         }
@@ -133,7 +145,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
         return $transactionStatus;
     }
 
-    public function getCustomerIsGuest() {
+    public function getCustomerIsGuest()
+    {
 
         if ($this->currentCustomer->getCustomerId()) {
             return false;
