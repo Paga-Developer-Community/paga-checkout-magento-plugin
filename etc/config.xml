@@ -12,7 +12,7 @@
                 <debug>1</debug>
                 <active>0</active>
                 <test_mode>1</test_mode>
-                <model>Magento\ExpressCheckout\Model\PagaExpress</model>
+                <model>Magento\PagaCheckout\Model\PagaExpress</model>
                 <title>Payments (powered by Paga)</title>                
                 <currency>NGN</currency>
                 <can_use_checkout>1</can_use_checkout>
