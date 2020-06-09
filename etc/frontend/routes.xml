@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
 	<router id="standard">
 		<route frontName="pagaexpress" id="pagaexpress">
-			<module name="Paga_ExpressCheckout"/>
+			<module name="Magento_PagaCheckout"/>
 		</route>
 	</router>
 </config>
