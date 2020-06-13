@@ -17,7 +17,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
         $eavTable = $installer->getTable('quote');
 
-        if (version_compare($context->getVersion(), '2.0.2', '<')) {
+        if (version_compare($context->getVersion(), '1.0.0', '<')) {
 
             $columns = [
                 'paga_charge_reference' => [
